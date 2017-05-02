@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>#{msg.tituloRegistro}</title>
+</h:head>
+<h:body>
+	<h:form id="form-registro">
+			<ui:include src="/snippets/login_menu.xhtml" />
+		<p:panel>
+
+			<p:messages id="messagess" showDetail="true" autoUpdate="true" />
+			<h:panelGrid columns="2" id="Grid">
+
+
+				
+
+			
+	 #{msg.rellenaUsuario}
+  <h:panelGroup>
+					<p:inputText value="#{controller.login}" required="true"
+						requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_nombre_validatorMessage}"
+						id="nombre">
+						<f:validateLength maximum="20" />
+					</p:inputText>
+					<p:message for="nombre" />
+				</h:panelGroup>
+  
+  #{msg.rellenaEmail}
+  <h:panelGroup>
+					<p:inputText value="#{controller.email}" required="true"
+						requiredMessage="#{msgs.formAlta_correo_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_correo_validatorMessage}"
+						id="email">
+						<f:validateRegex pattern=".+@.+\.[a-z]+" />
+					</p:inputText>
+					<p:message for="email" />
+				</h:panelGroup>
+		
+		#{msg.rellenaContraseña}
+		<h:panelGroup>
+					<p:password id="passw" value="#{controller.password}"
+						required="true" requiredMessage="#{msg.login_form_falta_pass}" />
+
+				</h:panelGroup>
+				
+		#{msg.repiteContraseña}
+		<h:panelGroup>
+					<p:password id="passwConf" value="#{controller.password2}"
+						required="true" requiredMessage="#{msg.login_form_falta_pass}" />
+
+				</h:panelGroup>
+				<p:commandButton id="registrar" value="#{msg.tituloRegistro}"
+					action="#{controller.crearUsuario}" />
+
+
+				<p:commandButton value="#{msg.botonAtras}"
+					action="#{controller.atras}" immediate="true"/>
+
+
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

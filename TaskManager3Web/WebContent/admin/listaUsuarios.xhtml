@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>#{msg.cabeceraAdmin}</title>
+</h:head>
+<h:body>
+
+	<h:form id="listaUsuarios">
+		<ui:include src="/snippets/login_menu.xhtml" />
+		<p:dataTable id="listado" var="user" value="#{controller.users}"
+			border="2">
+
+			<p:column headerText="#{msg.usuarioId}">
+				<h:outputText value="#{user.id}" />
+			</p:column>
+
+			<p:column headerText="#{msg.usuarioLogin}" sortBy="#{user.login}" id="ordenarLogin">
+				<h:outputText value="#{user.login}" id="loginUsers"  />
+			</p:column>
+			<p:column headerText="#{msg.usuarioEmail}" sortBy="#{user.email}" id="ordenarEmail">
+				<h:outputText value="#{user.email}" id="emailUsers"  />
+			</p:column>
+			
+			<p:column headerText="#{msg.usuarioStatus}" sortBy="#{user.status}" id="ordenarStatus">
+				<h:outputText value="#{user.status}" id="statusUsers"  />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">#{msg.usuarioStatus}</f:facet>
+				<p:commandLink action="#{controller.cambiarEstado(user)}"
+					rendered="#{user.isAdmin==false}" type="submit"
+					value="#{user.status}" immediate="true" update="listado">
+				</p:commandLink>
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">#{msg.usuarioEliminar}</f:facet>
+				<p:commandLink action="#{controller.eliminar(user)}"
+					rendered="#{user.isAdmin==false}" type="submit"
+					value="#{msg.usuarioEliminar}" inmediate="true" update="listado">
+				</p:commandLink>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+
+
+<div>
+			<p:commandButton id="botonCerrarSesion"
+				action="#{controller.cerrarSesion}" icon="ui-icon-power" />
+
+			<p:commandButton value="#{msg.enlaceIdiomaES}" id="ES"
+				actionListener="#{settings.setSpanish}" update="@all"
+				immediate="true" />
+			<p:commandButton value="#{msg.enlaceIdiomaEN}" id="EN"
+				actionListener="#{settings.setEnglish}" update="@all"
+				immediate="true" />
+		</div>
+
+
+
+
+	<p:commandButton value="#{msg.botonAtras}" action="#{controller.atras}" />
+</h:body>
+</html>

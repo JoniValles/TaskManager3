@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<f:view locale="#{settings.locale}">
+	<h:head>
+		<title>#{msg.tituloLogin}</title>
+	</h:head>
+	<body>
+		<h:form id="form-login">
+			<ui:include src="/snippets/login_menu.xhtml" />
+			
+			<p:panel id="panel">
+
+				<p:focus context="panel" />
+				<h:panelGrid columns="2" id="Grid">
+					<h:panelGroup></h:panelGroup>
+					<h:panelGroup>
+						<p:messages id="messagess" showDetail="true" autoUpdate="true"
+							closable="true" />
+						<!-- <h:outputText id="msgAlta" value="#{msg[login.result]}" /> -->
+					</h:panelGroup>
+		#{msg.rellenaUsuario}
+		<h:panelGroup>
+						<p:inputText id="nombreUsuario" value="#{login.name}"
+							required="true" requiredMessage="#{msg.login_form_falta_nombre}" />
+
+					</h:panelGroup>
+					
+		#{msg.rellenaContraseña}
+		<h:panelGroup>
+						<p:password id="pass" value="#{login.password}" required="true"
+							requiredMessage="#{msg.login_form_falta_pass}" />
+
+					</h:panelGroup>
+
+					<h:panelGroup>
+
+
+
+						<p:commandButton value="#{msg.botonValidar}"
+							action="#{login.verify}" id="iniciarSesion" update="Grid" process="@form">
+
+						</p:commandButton>
+						<p:commandButton id="btnRegistroUsuario" value="#{msg.botonRegistro}"
+							action="#{controller.registro}" immediate="true"/>
+					</h:panelGroup>
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form>
+
+	</body>
+</f:view>
+</html>
