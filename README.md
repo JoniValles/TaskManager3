@@ -17,8 +17,8 @@
 
 2. SOAP 
 
-  -Misma funcionalidad que el cliente EJB
-  -No todos los servidores ofrecidos por la capa tienen que ser accesibles por SOAP 
+  - Misma funcionalidad que el cliente EJB
+  - No todos los servidores ofrecidos por la capa tienen que ser accesibles por SOAP 
     Solo lo que se nos pide
 
 3. RESt
@@ -30,11 +30,11 @@
  
 4. Mensajes 
 
-  -configuracion de canales en META-INF
-  -cliente ofrece menu
-  -hay un MDB en el servidor 
-  -cliente simultaneos solo reciben mensajes destinados a ellos
-  -cada peticion obtiene un mensaje de respuesta
+  - configuracion de canales en META-INF
+  - cliente ofrece menu
+  - hay un MDB en el servidor 
+  - cliente simultaneos solo reciben mensajes destinados a ellos
+  - cada peticion obtiene un mensaje de respuesta
     incluso si hay error
-  -canal para mensajes invalidos o que provoquen error 
-  -contiene excepciones y tipos de mensaje
+  - canal para mensajes invalidos o que provoquen error 
+  - contiene excepciones y tipos de mensaje
