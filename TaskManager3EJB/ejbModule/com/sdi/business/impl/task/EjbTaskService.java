@@ -19,7 +19,6 @@ import com.sdi.persistence.Persistence;
  */
 @Stateless
 @LocalBean
-@WebService(name="TaskService")
 public class EjbTaskService implements EjbTaskServiceRemote, EjbTaskServiceLocal {
 
     /**

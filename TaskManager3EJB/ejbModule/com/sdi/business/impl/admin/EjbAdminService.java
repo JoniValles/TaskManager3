@@ -17,7 +17,6 @@ import com.sdi.persistence.Persistence;
  */
 @Stateless
 @LocalBean
-@WebService(name="AdminService")
 public class EjbAdminService implements EjbAdminServiceRemote, EjbAdminServiceLocal {
 
     /**

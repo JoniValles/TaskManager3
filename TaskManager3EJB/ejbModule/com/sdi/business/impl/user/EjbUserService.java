@@ -21,7 +21,6 @@ import com.sdi.dto.User;
  */
 @Stateless
 @LocalBean
-@WebService(name="UserService")
 public class EjbUserService implements EjbUserServiceRemote, EjbUserServiceLocal {
 
     /**
