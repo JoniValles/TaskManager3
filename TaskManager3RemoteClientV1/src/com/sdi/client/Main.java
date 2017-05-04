@@ -15,12 +15,7 @@ import com.sdi.dto.User;
 
 public class Main {
 
-	// private static final String USER_SERVICE_JNDI_KEY = "TaskManager3/" +
-	// "TaskManager3EJB/" + "EjbUserService!"
-	// + "com.sdi.business.impl.user.RemoteUserService";
-	// private static final String TASK_SERVICE_JNDI_KEY = "TaskManager3/" +
-	// "TaskManager3EJB/" + "EjbTaskService!"
-	// + "com.sdi.business.impl.task.RemoteTaskService";
+	
 	private static final String ADMIN_SERVICE_JNDI_KEY = "TaskManager3/"
 			+ "TaskManager3EJB/" + "EjbAdminService!"
 			+ "com.sdi.business.impl.admin.RemoteAdminService";
