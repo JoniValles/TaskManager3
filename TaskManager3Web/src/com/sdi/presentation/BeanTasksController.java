@@ -71,7 +71,7 @@ public class BeanTasksController implements Serializable {
 	        cargarCategoriasStr();
 	      
 	    }
-	    @PostConstruct
+	    
 	    public List<Category> getCategorys() {
 	        return user.getCategories();
 	    }
@@ -126,7 +126,7 @@ public class BeanTasksController implements Serializable {
 	    public void setFilteredTasks(List<Task> filteredTask) {
 	        this.filteredTasks=filteredTask;
 	    }
-	    @PostConstruct
+	 
 	    public void setUser(BeanUser user) {
 	        this.user=user;
 	    }

@@ -28,11 +28,6 @@ public class BeanCategorysController extends Category implements Serializable {
 	@ManagedProperty("#{controller}")
 	private BeanUser user;
 
-	@PostConstruct
-	public void init() {
-		getCategories();
-
-	}
 
 	@PostConstruct
 	public List<Category> getCategories() {
