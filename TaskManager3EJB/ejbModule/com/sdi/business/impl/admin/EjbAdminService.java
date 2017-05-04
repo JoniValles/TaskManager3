@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.sdi.business.exception.BusinessException;
 import com.sdi.business.impl.admin.command.*;
@@ -16,6 +17,7 @@ import com.sdi.persistence.Persistence;
  */
 @Stateless
 @LocalBean
+@WebService(name="AdminService")
 public class EjbAdminService implements EjbAdminServiceRemote, EjbAdminServiceLocal {
 
     /**

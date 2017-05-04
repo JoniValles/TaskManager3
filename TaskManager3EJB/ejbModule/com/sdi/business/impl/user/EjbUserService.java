@@ -7,6 +7,8 @@ import javax.ejb.Stateless;
 
 
 
+import javax.jws.WebService;
+
 import com.sdi.business.exception.BusinessException;
 import com.sdi.business.impl.command.CommandExecutor;
 import com.sdi.business.impl.user.command.FindLoggableUSerCommand;
@@ -19,6 +21,7 @@ import com.sdi.dto.User;
  */
 @Stateless
 @LocalBean
+@WebService(name="UserService")
 public class EjbUserService implements EjbUserServiceRemote, EjbUserServiceLocal {
 
     /**
