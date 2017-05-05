@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.sdi.business.exception.BusinessException;
 import com.sdi.dto.User;
+import com.sdi.dto.UserTask;
 
 public interface AdminService {
 
@@ -15,6 +16,7 @@ public interface AdminService {
 	public User findUserById(Long id) throws BusinessException;
 	
 	public void restartBD() throws BusinessException;
-	
+	public List<UserTask> listAllUsers() throws BusinessException;
+
 
 }

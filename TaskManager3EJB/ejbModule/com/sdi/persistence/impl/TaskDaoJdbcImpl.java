@@ -2,10 +2,12 @@ package com.sdi.persistence.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.sdi.dto.Task;
+import com.sdi.dto.User;
 import com.sdi.persistence.TaskDao;
 import com.sdi.persistence.util.JdbcHelper;
 import com.sdi.persistence.util.JdbcTemplate;
@@ -37,6 +39,20 @@ public class TaskDaoJdbcImpl implements TaskDao {
 				: null;
 		}
 
+	}
+	
+	
+	public class CountMapper implements RowMapper<List<Integer>> {
+		@Override
+		public List<Integer> toObject(ResultSet rs) throws SQLException {
+			List<Integer> num = new ArrayList<>();
+			num.add(rs.getInt(1));
+			num.add(rs.getInt(2));
+			num.add(rs.getInt(3));
+			num.add(rs.getInt(4));
+			
+			return num;
+		}		
 	}
 
 	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -165,5 +181,11 @@ public class TaskDaoJdbcImpl implements TaskDao {
 			);
 		
 	}
+
+	@Override
+	public List<Integer> numberOfTasks(User user) {
+		return jdbcTemplate.queryForObject("TASKS_COUNT", new CountMapper(), user.getId());
+
+	}	
 
 }

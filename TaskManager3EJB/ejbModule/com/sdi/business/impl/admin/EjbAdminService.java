@@ -11,6 +11,7 @@ import com.sdi.business.impl.admin.command.*;
 import com.sdi.business.impl.command.Command;
 import com.sdi.business.impl.command.CommandExecutor;
 import com.sdi.dto.User;
+import com.sdi.dto.UserTask;
 import com.sdi.persistence.Persistence;
 /**
  * Session Bean implementation class EjbAdminService
@@ -62,6 +63,11 @@ public class EjbAdminService implements EjbAdminServiceRemote, EjbAdminServiceLo
 	public void restartBD() throws BusinessException {
 		new CommandExecutor<Void>().execute( new restartBDCommand() );
 		
+	}
+	@Override
+	public List<UserTask> listAllUsers() throws BusinessException {
+		return new ListAllUsersCommand().execute();
+
 	}
 	
 	

@@ -7,10 +7,12 @@ import com.sdi.business.exception.BusinessException;
 import com.sdi.business.impl.admin.command.DeepDeleteUserCommand;
 import com.sdi.business.impl.admin.command.DisableUserCommand;
 import com.sdi.business.impl.admin.command.EnableUserCommand;
+import com.sdi.business.impl.admin.command.ListAllUsersCommand;
 import com.sdi.business.impl.admin.command.restartBDCommand;
 import com.sdi.business.impl.command.Command;
 import com.sdi.business.impl.command.CommandExecutor;
 import com.sdi.dto.User;
+import com.sdi.dto.UserTask;
 import com.sdi.persistence.Persistence;
 
 public class AdminServiceImpl implements AdminService {
@@ -52,6 +54,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void restartBD() throws BusinessException {
 		new CommandExecutor<Void>().execute( new restartBDCommand() );
+	}
+	
+	@Override
+	public List<UserTask> listAllUsers() throws BusinessException {
+		return new ListAllUsersCommand().execute();
 	}
 
 }

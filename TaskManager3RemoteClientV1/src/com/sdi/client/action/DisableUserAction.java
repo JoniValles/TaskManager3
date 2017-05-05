@@ -2,6 +2,10 @@ package com.sdi.client.action;
 
 import java.util.List;
 
+import alb.util.console.Console;
+import alb.util.log.Log;
+import alb.util.menu.Action;
+
 import com.sdi.business.AdminService;
 import com.sdi.business.exception.BusinessException;
 import com.sdi.dto.User;
@@ -12,7 +16,7 @@ public class DisableUserAction implements Action {
 
 	@Override
 	public void execute() throws Exception {
-		AdminService AS = new RemoteServicesLocator().getAdminService();
+		AdminService AS = new RemoteEjbServicesLocator().getAdminService();
 		listarUsuarios(AS);
 		Long id = Console.readLong("Deshabilitar usuario con ID: ");
 		

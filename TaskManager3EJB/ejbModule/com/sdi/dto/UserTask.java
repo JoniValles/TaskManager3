@@ -96,7 +96,7 @@ public class UserTask implements Serializable{
 		this.status = status;
 	}
 
-	public int gettasksDone() {
+	public int getTasksDone() {
 		return tasksDone;
 	}
 	public void setTasksDone(int tasksDone) {
